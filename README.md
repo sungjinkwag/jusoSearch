@@ -6,6 +6,6 @@ https://github.com/sungjinkwag/jusoSearch/blob/master/JusoSearch/target/JusoSear
  - twbsPagination.js, bootstrap : 페이징 구현을 위함
  
 3. 로그인 계정
-john:asdf / 
-wick:qwer / 
-captain:qwer111
+john,asdf / 
+wick,qwer / 
+captain,qwer111
