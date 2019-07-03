@@ -3,8 +3,11 @@ package com.juso.main.controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +39,7 @@ public class JusoController {
 	KeywordService keywordService;
 	
 	@GetMapping("/searchJuso")
-	public ModelAndView goSearchJuso(HttpServletRequest request) {
+	public ModelAndView goSearchJuso(HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView mv = new ModelAndView("searchJuso");
 		loginSession = SessionManager.getLoginSession(request);
 		id = loginSession.getUserInfo().getId();
@@ -119,7 +122,7 @@ public class JusoController {
 			os.flush();
 			os.close();
 			
-			BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 			
 			String inputLine;
 			StringBuffer response = new StringBuffer();
